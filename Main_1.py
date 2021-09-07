@@ -1,5 +1,3 @@
-from itertools import permutations
-
 name_1 = "Alex"
 print(name_1, type(name_1))
 
@@ -55,4 +53,3 @@ name_13 = 456
 print(name_13 % name_12)
 
 # name_14 =  (7 + 12) 3 + 7 * 4 - 44 / 2  4
-
