@@ -1,11 +1,14 @@
-n = input("Введите трехзначное число: ")
-n = int(n)
+while True:
 
-d1 = n % 10
-n = n // 10
-d2 = n % 10
-n = n // 10
-d3 = n % 10
-n = n // 10
+    input_data = int(input("Enter BYN money"))
 
-print("Сумма цифр числа:", n + d2 + d3)
+    if input_data <= 0:
+        print("Enter money above 0")
+        continue
+
+    bun_to_usd = int(input_data) / 2.5
+
+    print("USD = ", bun_to_usd)
+
+
+
