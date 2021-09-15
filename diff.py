@@ -1,8 +1,8 @@
 # import random
 # import time
 # created_list = [value for value in range(0, random.randint(10,20))]
-#
-#
+#awdawadaw
+#awdaw
 # def main():
 #     input_money = get_money()
 #

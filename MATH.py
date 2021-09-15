@@ -7,7 +7,7 @@ while True:
         continue
 
     bun_to_usd = int(input_data) / 2.5
-
+#sefsef
     print("USD = ", bun_to_usd)
 
 

@@ -1,5 +1,6 @@
 name_1 = "Alex"
 print(name_1, type(name_1))
+#aedawd
 
 name_2 = 4654
 print(name_2, type(name_2))

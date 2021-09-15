@@ -16,13 +16,16 @@ name_7 = 25.5
 print(name_7, '=',  type(name_7))
 name_8 = 25.5
 print(name_8, '=', type(name_8))
-
+## awdaw
 import random
 RD_1 = random.randint(1, 100)
 RD_2 = random.randint(1, 100)
 
 result_1 = RD_1 < RD_2
-print(result_1, 'т.к.', RD_1, RD_2)
+print(result_1, 'т.к.', RD_1, 'and', RD_2)
+
+#__________
+
 
 
 # In = int(input())
