@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "b07c0ec3-898d-4e02-8b4c-fa6f3e3c0271",
+		"name": "HW_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "2.1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.json);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "/s34lfgbj/None/jjd909/51339kjkWpqc5156None315831evny",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "let jsonData = pm.response.json();\r\npm.environment.set(\"token\", jsonData.json);\r\n\r\n{\r\n\"args\":{\r\n    \"token\": \"/s34lfgbj/None/jjd909/42840kjkWpqc4067None272223evny\"\r\n}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"///////////////////////////////////////////1\r",
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"///////////////////////////////////////////2\r",
+							"\r",
+							"\r",
+							"\r",
+							"let salary =  pm.response.json().start_qa_salary;\r",
+							"let salary2 =  pm.response.json().qa_salary_after_6_months;\r",
+							"let salary3 =  pm.response.json().qa_salary_after_12_months;\r",
+							"let salary4 = pm.response.json().u_salary_1_5_year;\r",
+							"\r",
+							"console.log(\"salary = \", parseInt(salary), typeof(salary));\r",
+							"console.log(\"salary2 = \", parseInt(salary2), typeof(salary2));\r",
+							"console.log(\"salary3 = \", parseInt(salary3), typeof(salary3));\r",
+							"console.log(\"salary4 = \", parseInt(salary4), typeof(salary4));\r",
+							"\r",
+							"pm.test(\"Check 1 salary\", function () {\r",
+							"        pm.expect(jsonData.start_qa_salary).to.eql(salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check 2 salary\", function (){\r",
+							"    pm.expect(salary2).to.eql(salary*2)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check 3 salary\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.qa_salary_after_12_months).to.eql(salary*2.9);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check 4 salary\", function () {\r",
+							"    let jsonData = pm.response.json().person;\r",
+							"    pm.expect(jsonData.salary4).to.eql(salary4);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n\"age\": 23,\r\n\"salary\": 2000,\r\n\"name\": \"valery\",\r\n\"auth_token\": \"{{token}}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}user_info",
+					"host": [
+						"{{url}}user_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "____",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\",jsonData.json); "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "__2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"let salary = jsonData.salary[0];\r",
+							"let salary1 = jsonData.salary[1];\r",
+							"let salary2 = jsonData.salary[2];\r",
+							"\r",
+							"console.log(\"salary = \", parseInt(salary), typeof(salary));\r",
+							"console.log(\"salary1 = \", parseInt(salary1), typeof(salary1));\r",
+							"console.log(\"salary2 = \", parseInt(salary2), typeof(salary2));\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check salary\", function () {\r",
+							"    pm.expect(jsonData.salary[0]).to.eql(jsonData.salary[0]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check salary1\", function () {\r",
+							"    pm.expect(jsonData.salary[1]).to.eql(salary1);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check salary2\", function () {\r",
+							"    pm.expect(jsonData.salary[2]).to.eql(salary2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "32",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "vadin",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "5000",
+							"type": "text"
+						},
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/new_data",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"new_data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"1});\r",
+							"\r",
+							"var schema = {\r",
+							"    \"name\": {\r",
+							"        \"type\": \"string\"\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"var data1 = [true, false];\r",
+							"var data2 = [true, 123];\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(jsonData.name).to.be.true;\r",
+							"    pm.expect(jsonData.name).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "5000",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Valery",
+							"type": "text"
+						},
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/new_data",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"new_data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "Valery",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "134",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
